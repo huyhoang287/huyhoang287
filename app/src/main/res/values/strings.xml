@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">TechDoc Manager</string>
+
+    <!-- Home Screen -->
+    <string name="search_hint">Tìm kiếm theo tên, mã, tag...</string>
+    <string name="add_document">Thêm tài liệu mới</string>
+    <string name="delete_document">Xóa tài liệu</string>
+    <string name="no_documents">Chưa có tài liệu nào</string>
+    <string name="no_documents_hint">Nhấn nút (+) để thêm tài liệu kỹ thuật đầu tiên</string>
+    <string name="no_search_results">Không tìm thấy tài liệu</string>
+    <string name="clear_filters">Xóa bộ lọc</string>
+
+    <!-- Categories -->
+    <string name="category_all">Tất cả</string>
+    <string name="category_standard">Standard</string>
+    <string name="category_spec">Specification</string>
+    <string name="category_manual">Manual</string>
+    <string name="category_project">Project Docs</string>
+    <string name="category_code">Code</string>
+
+    <!-- Import Flow -->
+    <string name="import_title">Nhập tài liệu mới</string>
+    <string name="document_title">Tên tài liệu</string>
+    <string name="document_code">Mã tiêu chuẩn (e.g., ASME IX)</string>
+    <string name="document_tags">Tags (phân cách bởi dấu phẩy)</string>
+    <string name="select_file">Chọn file PDF</string>
+    <string name="save">Lưu</string>
+    <string name="cancel">Hủy</string>
+
+    <!-- Error messages -->
+    <string name="error_occurred">Đã xảy ra lỗi</string>
+    <string name="error_file_not_found">Không tìm thấy file</string>
+    <string name="error_import_failed">Không thể nhập tài liệu</string>
+</resources>
