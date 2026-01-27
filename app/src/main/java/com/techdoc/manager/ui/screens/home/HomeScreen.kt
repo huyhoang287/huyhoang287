@@ -21,6 +21,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.techdoc.manager.data.local.entity.Document
 import com.techdoc.manager.data.local.entity.DocumentCategory
+import com.techdoc.manager.ui.components.ConfirmDeleteDialog
 import com.techdoc.manager.ui.components.DocumentCard
 import com.techdoc.manager.viewmodel.HomeUiState
 import com.techdoc.manager.viewmodel.HomeViewModel
@@ -41,6 +42,23 @@ fun HomeScreen(
     val selectedCategory by viewModel.selectedCategory.collectAsState()
     val isLoading by viewModel.isLoading.collectAsState()
     val uiState by viewModel.uiState.collectAsState()
+
+    // Delete confirmation dialog state
+    var documentToDelete by remember { mutableStateOf<Document?>(null) }
+
+    // Show delete confirmation dialog
+    documentToDelete?.let { document ->
+        ConfirmDeleteDialog(
+            document = document,
+            onConfirm = {
+                viewModel.deleteDocument(document)
+                documentToDelete = null
+            },
+            onDismiss = {
+                documentToDelete = null
+            }
+        )
+    }
 
     Scaffold(
         topBar = {
@@ -100,7 +118,9 @@ fun HomeScreen(
                     DocumentList(
                         documents = documents,
                         onDocumentClick = onDocumentClick,
-                        onDeleteClick = viewModel::deleteDocument
+                        onDeleteClick = { document ->
+                            documentToDelete = document
+                        }
                     )
                 }
                 is HomeUiState.Error -> {
